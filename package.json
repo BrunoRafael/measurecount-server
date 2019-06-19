@@ -1,0 +1,25 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esm index.js",
+    "build": "babel src -d dist --presets es2015",
+    "watch": "babel src -w -d dist --presets es2015"
+  },
+  "author": "Kalber Roberto",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "sequelize": "^5.8.10",
+    "sqlite3": "^4.0.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "babel-cli": "^6.26.0"
+  }
+}
