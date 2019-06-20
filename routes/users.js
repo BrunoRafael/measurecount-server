@@ -18,4 +18,11 @@ export default (app) => {
                     res.json(response.data);
                 })
         })
+        .get((req, res) => {
+            usersController.getById(req.params)
+                .then(response => {
+                    res.status(response.statusCode);
+                    res.json(response.data);
+                })
+        })
 }
