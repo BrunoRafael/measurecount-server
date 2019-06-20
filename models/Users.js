@@ -28,27 +28,6 @@ export default (sequelize, DataType) => {
         notEmpty: true,
       },
     },
-    jobfuction:{
-      type: DataType.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    },
-    sector:{
-      type: DataType.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    },
-    role:{
-      type: DataType.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    }
 
   },
     {

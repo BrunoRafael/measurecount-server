@@ -1,5 +1,5 @@
 {
-  "name": "sb-serve",
+  "name": "sb-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "test-integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*.js",
     "test-unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*.js"
   },
-  "author": "",
+  "author": "Kalber Roberto",
   "license": "ISC",
   "dependencies": {
     "babel": "^6.23.0",
