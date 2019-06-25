@@ -1,8 +1,5 @@
-import express from "express";
-let PORT = 3000;
+import app from './app';
 
-const app = express();
-
-app.get ("/",(req,res)=>res.json({status:"Api RUN"}));
-
-app.listen(PORT, ()=> console.log(`Rodando na porta ${PORT}`));
+app.listen(app.get('port'),()=>{
+    console.log (`App is running on port ${app.get('port')}`);
+});
