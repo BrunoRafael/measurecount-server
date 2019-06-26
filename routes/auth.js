@@ -6,11 +6,11 @@ export default app => {
     const Users = app.datasource.models.Users;
 
     app.post('/login', (req, res) => {
-        if (req.body.email && req.body.password) {
-            const email = req.body.email;
+        if (req.body.login && req.body.password) {
+            const login = req.body.login;
             const password = req.body.password;
             console.log(Users);
-            Users.findOne({ where: { email } })
+            Users.findOne({ where: { login } })
                 .then(user => {
                     console.log(user.password);
                     if (Users.isPassword(user.password, password)) {
