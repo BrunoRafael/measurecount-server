@@ -13,7 +13,7 @@ export default app => {
                 if (user) {
                     return done(null, {
                         id: user.id,
-                        email: user.email
+                        login: user.login
                     });
                 }
                 return done(null, false);

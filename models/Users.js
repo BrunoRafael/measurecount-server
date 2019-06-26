@@ -21,7 +21,7 @@ export default (sequelize, DataType) => {
         notEmpty: true,
       },
     },
-    email: {
+    login: {
       type: DataType.STRING,
       allowNull: false,
       validate: {
@@ -68,13 +68,13 @@ export default (sequelize, DataType) => {
         lastName: "admin",
         sector: "admin",
         role: "admin",
-        email: 'admin@admin.com',
+        login: 'admin',
         password: "admin"
       }))
       .then(admin => {
         console.log(admin.toJSON());
       })
-      .catch(err => console.log("administrator has already created email:admin@admin.com senha: admin"));
+      .catch(err => console.log("administrator has already created login:admin senha: admin"));
   
   Users.isPassword = (encodedPassword, password) => {
     return bcrypt.compareSync(password, encodedPassword);
