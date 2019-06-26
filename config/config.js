@@ -6,7 +6,8 @@ export default {
     password: '',
     params: {
         dialect :'sqlite',
-        storage: `${process.env.NODE_ENV}_db.sqlite`,
+        //storage: `${process.env.NODE_ENV}_db.sqlite`, mudar depois que terminar de usar no windows (node_env da muito problema no windows)
+        storage: 'db.sqlite',
         define: {
             underscored: true
         }

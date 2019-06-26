@@ -5,7 +5,7 @@ export default app => {
     const config = app.config;
     const Users = app.datasource.models.Users;
 
-    app.post('/token', (req, res) => {
+    app.post('/login', (req, res) => {
         if (req.body.email && req.body.password) {
             const email = req.body.email;
             const password = req.body.password;

@@ -7,7 +7,14 @@ export default (sequelize, DataType) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    firstName: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    lastName: {
       type: DataType.STRING,
       allowNull: false,
       validate: {
@@ -15,6 +22,20 @@ export default (sequelize, DataType) => {
       },
     },
     email: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    sector: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    role: {
       type: DataType.STRING,
       allowNull: false,
       validate: {
@@ -29,6 +50,7 @@ export default (sequelize, DataType) => {
       },
     },
 
+
   },
     {
       hooks: {
@@ -39,7 +61,26 @@ export default (sequelize, DataType) => {
       },
 
     });
-    Users.isPassword = (encodedPassword, password) => {
-      return bcrypt.compareSync(password, encodedPassword); }
+   sequelize.sync()
+      .then(() => Users.create({
+        id : 1,
+        firstName: "admin",
+        lastName: "admin",
+        sector: "admin",
+        role: "admin",
+        email: 'admin@admin.com',
+        password: "admin"
+      }))
+      .then(admin => {
+        console.log(admin.toJSON());
+      })
+      .catch(err => console.log("administrator has already created email:admin@admin.com senha: admin"));
+  
+  Users.isPassword = (encodedPassword, password) => {
+    return bcrypt.compareSync(password, encodedPassword);
+  }
   return Users;
 };
+
+
+
