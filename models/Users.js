@@ -49,6 +49,13 @@ export default (sequelize, DataType) => {
         notEmpty: true,
       },
     },
+    jobFunction: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
 
 
   },
@@ -69,7 +76,8 @@ export default (sequelize, DataType) => {
         sector: "admin",
         role: "admin",
         login: 'admin',
-        password: "admin"
+        password: "admin",
+        jobFunction: "admin"
       }))
       .then(admin => {
         console.log(admin.toJSON());
