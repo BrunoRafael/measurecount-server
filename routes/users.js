@@ -16,6 +16,7 @@ export default (app) => {
                 .then(response => {
                     res.status(response.statusCode);
                     res.json(response.data);
+                    console.log(response.data);
                 })
         })
 
@@ -38,7 +39,7 @@ export default (app) => {
         .delete((req, res) => {
             usersController.delete(req.params)
                 .then(response => {
-                    res.sendStatus(response.statusCode);
+                    res.status(response.statusCode);
                 })
         });
 }
