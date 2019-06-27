@@ -15,9 +15,7 @@ export default (app) => {
             usersController.create(req.body)
                 .then(response => {
                     res.status(response.statusCode);
-                    console.log(response.data);
-                    res.json(response.data);
-                    console.log(response.data);
+                    res.json("success");
                 })
         })
 
@@ -34,13 +32,14 @@ export default (app) => {
             usersController.update(req.body, req.params)
                 .then(response => {
                     res.status(response.statusCode);
-                    res.json(response.data);
+                    res.json("success");
                 })
         })
         .delete((req, res) => {
             usersController.delete(req.params)
                 .then(response => {
                     res.status(response.statusCode);
+                    res.json("success");
                 })
         });
 }
