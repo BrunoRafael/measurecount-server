@@ -15,6 +15,7 @@ export default (app) => {
             usersController.create(req.body)
                 .then(response => {
                     res.status(response.statusCode);
+                    console.log(response.data);
                     res.json(response.data);
                     console.log(response.data);
                 })
