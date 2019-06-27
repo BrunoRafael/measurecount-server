@@ -9,15 +9,16 @@ export default app => {
         if (req.body.login && req.body.password) {
             const login = req.body.login;
             const password = req.body.password;
-            console.log(Users);
             Users.findOne({ where: { login } })
                 .then(user => {
-                    console.log(user.password);
                     if (Users.isPassword(user.password, password)) {
                         
                         const payload = { id: user.id };
                         res.json({
                             token: jwt.encode(payload, config.jwtSecret),
+                            firstName: user.firstName,
+                            login: user.login,
+                            role: user.role
                         });
                     } else {
                         res.sendStatus(HttpStatus.UNAUTHORIZED);
