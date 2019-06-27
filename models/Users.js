@@ -23,6 +23,7 @@ export default (sequelize, DataType) => {
     },
     login: {
       type: DataType.STRING,
+      unique: true,
       allowNull: false,
       validate: {
         notEmpty: true,
@@ -88,7 +89,7 @@ export default (sequelize, DataType) => {
     return bcrypt.compareSync(password, encodedPassword);
   }
   return Users;
-};
+}; 
 
 
 
