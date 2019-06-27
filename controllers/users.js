@@ -15,13 +15,14 @@ class UsersController {
     }
 
     getAll() {
-        return this.Users.findAll({})
+        return this.Users.findAll({ attributes: { exclude: ["password"] } })
             .then(result => defaultResponse(result))
             .catch(error => errorResponse(error.message));
     }
 
     getById(params) {
         return this.Users.findOne({
+            attributes: { exclude: ["password"] },
             where: params,
         })
             .then(result => defaultResponse(result))
@@ -46,7 +47,7 @@ class UsersController {
         return this.Users.destroy({
             where: params,
         })
-            .then(result => defaultResponse(result, HttpStatus.NO_CONTENT))
+            .then(result => defaultResponse(result))
             .catch(error => errorResponse(error.message, HttpStatus.UNPROCESSABLE_ENTITY));
     }
 }
