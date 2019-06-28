@@ -17,6 +17,8 @@ export default app => {
                         res.json({
                             token: jwt.encode(payload, config.jwtSecret),
                             firstName: user.firstName,
+                            lastName: user.lastName,
+                            id: user.id,
                             login: user.login,
                             role: user.role
                         });
